@@ -1,11 +1,12 @@
 import useSWR from "swr";
-import { EnumName } from "../config/enums";
+import { buildEnumUrl } from "../config/enums";
+import type { EnumName } from "../types/enums";
 
 const fetcher = (input: RequestInfo | URL, init?: RequestInit | undefined) =>
   fetch(input, init).then((res) => res.json());
 
 export default function useEnum(name: EnumName) {
-  const { data, error } = useSWR(`/api/enums/${name}`, fetcher);
+  const { data, error } = useSWR(buildEnumUrl(name), fetcher);
   return {
     record: data,
     loading: !data && !error,
