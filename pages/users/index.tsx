@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import { AccessControl } from "../../components/access";
 import { EnumSelect, EnumText } from "../../components/enums";
 
 const Users: NextPage = () => {
@@ -20,6 +21,15 @@ const Users: NextPage = () => {
       <div>
         <EnumText name="Test2" value="YES"></EnumText>/
         <EnumText name="Test2" value="NO"></EnumText>
+      </div>
+
+      <div>
+        HasAccessRole access:{" "}
+        <AccessControl roles={["HasAccessRole"]}>Yes</AccessControl>
+      </div>
+      <div>
+        NoAccessRole access:{" "}
+        <AccessControl roles={["NoAccessRole"]}>No</AccessControl>
       </div>
     </>
   );
