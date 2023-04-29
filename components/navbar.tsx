@@ -51,10 +51,12 @@ function MenuItem({
 }) {
   return (
     <AccessControl roles={roles} fallback="">
-      <Link href={href}>
-        <a className="h-12 leading-[3rem] text-lg px-2 hover:bg-gray-900">
-          {name}
-        </a>
+      <Link
+        href={href}
+        className="h-12 leading-[3rem] text-lg px-2 hover:bg-gray-900">
+
+        {name}
+
       </Link>
     </AccessControl>
   );
