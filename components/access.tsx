@@ -23,7 +23,7 @@ export function AccessControl({
 }) {
   const access = useContext(accessContext);
   const accessed = useMemo(
-    () => !roles || access.roles.find((r) => roles.includes(r)),
+    () => !roles || access.roles.some((r) => roles.includes(r)),
     [access, roles]
   );
   return <>{accessed ? children : fallback ?? "no access"}</>;
